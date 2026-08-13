@@ -1,0 +1,221 @@
+:root {
+  --gul: #f0c435;
+  --sort: #17130a;
+  --oransje: #c1440e;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { height: 100%; }
+
+body {
+  min-height: 100%;
+  background: var(--gul);
+  color: var(--sort);
+  font-family: 'Archivo', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* Trykk-korn over hele flaten */
+.korn {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.07;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Plakat-kolonnen ---------- */
+.plakat {
+  width: min(680px, 92vw);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2.2rem, 6vh, 4rem) 0 clamp(1.6rem, 4vh, 2.6rem);
+}
+
+/* ---------- Tagline ---------- */
+.tagline {
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.15rem, 3.4vw, 1.8rem);
+  line-height: 1.3;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ---------- Tittel ---------- */
+.tittel-felt {
+  margin: clamp(2rem, 7vh, 4.5rem) 0 clamp(2.2rem, 7vh, 4.5rem);
+  transform: rotate(-7deg);
+}
+
+.monogram {
+  width: clamp(90px, 16vw, 130px);
+  height: auto;
+  margin-bottom: 0.6rem;
+  margin-left: -42%;
+}
+
+.tittel {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+}
+
+.tittel span {
+  display: block;
+  font-size: clamp(4rem, 15vw, 8.2rem);
+}
+
+/* Andre linje forskjøvet mot høyre — gir den skrå trappefølelsen */
+.tittel span:nth-child(2) {
+  margin-left: 34%;
+  color: var(--oransje);
+}
+
+/* ---------- Kreditter ---------- */
+.kreditter .stor {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: clamp(1.5rem, 4.4vw, 2.2rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+.rad {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.4rem, 5vw, 3rem);
+  flex-wrap: wrap;
+  margin-bottom: 1.3rem;
+}
+
+.rolle {
+  font-weight: 600;
+  font-size: clamp(0.55rem, 1.3vw, 0.68rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  text-align: left;
+}
+
+.navn {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: clamp(1.25rem, 3.6vw, 1.8rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* ---------- Knapper ---------- */
+.knapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: clamp(1.8rem, 5vh, 3rem) 0 1.6rem;
+}
+
+/* Aldersgrense-boksen: ramme, delt i merke + tekst */
+.knapp-rating {
+  display: flex;
+  align-items: stretch;
+  border: 2px solid var(--sort);
+  text-decoration: none;
+  color: var(--sort);
+  background: var(--gul);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.knapp-rating:hover,
+.knapp-rating:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--sort);
+}
+
+.k-merke {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.9rem;
+  background: var(--sort);
+  color: var(--gul);
+}
+
+.k-tekst {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 1.2rem;
+  text-align: left;
+}
+.k-tekst strong {
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.k-tekst small {
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-top: 0.15rem;
+}
+
+/* Enkel sekundærknapp i samme språk */
+.knapp-enkel {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--sort);
+  padding: 0.5rem 1.6rem;
+  text-decoration: none;
+  color: var(--sort);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+.knapp-enkel:hover,
+.knapp-enkel:focus-visible {
+  background: var(--sort);
+  color: var(--gul);
+}
+
+/* ---------- Bunnlinje ---------- */
+.bunnlinje {
+  margin-top: auto;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+/* ---------- Inntoning ---------- */
+.inn {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+body.lastet .inn { opacity: 1; transform: translateY(0); }
+body.lastet .tittel-felt { transition-delay: 0.15s; transform: rotate(-7deg) translateY(0); }
+body.lastet .kreditter  { transition-delay: 0.4s; }
+body.lastet .knapper    { transition-delay: 0.6s; }
+body.lastet .bunnlinje  { transition-delay: 0.8s; }
+
+/* Tittelfeltet skal beholde rotasjonen også før inntoning */
+.tittel-felt.inn { transform: rotate(-7deg) translateY(14px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .inn, body.lastet .inn { transition: none; opacity: 1; }
+  .tittel-felt.inn, body.lastet .tittel-felt { transform: rotate(-7deg); }
+}
